@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/AiEGIS-ie/aiegis/main/spec/grid.schema.json",
+  "$id": "https://aiegis.ie/ns/grid/v1/grid.schema.json",
   "title": "Grid wholesale-catalog manifest",
   "description": "Canonical JSON Schema for /.well-known/grid.json (v0.1). See GRID_SCHEMA_OVERVIEW.md for prose discussion of design intent.",
   "type": "object",

@@ -37,7 +37,7 @@ The paid service we run on top — registry, trust root, managed substrate verif
 
 **Public preview, v0.7.** Spec is stable enough for design-partner integration. v1.0 ships at first paying customer.
 
-- Substrate pack: 3 verifier lanes covering 4 substrate types, 289+ tests combined (214 on substrate-pack, 75 on compliance-bundle), regression-locked
+- Substrate pack: 3 verifier lanes covering 4 substrate types, 294+ tests combined (219 on substrate-pack, 75 on compliance-bundle), regression-locked
 - Spec: aligned with W3C DID Core, VC Data Model v2; v0.7 cryptosuite is `eddsa-rdfc-2022` only; v0.8 adds `eddsa-jcs-2022` with full JCS canonicalization (RFC 8785)
 - Compliance bundle: Ed25519 signatures, v0.8 adds hybrid Ed25519+ML-DSA-65 per NIST FIPS 204
 - AIVSS contributions: [#31 — Runtime Enforcement](https://github.com/OWASP/www-project-artificial-intelligence-vulnerability-scoring-system/issues/31), [#32 — Multi-Agent Governance](https://github.com/OWASP/www-project-artificial-intelligence-vulnerability-scoring-system/issues/32), [#33 — Mutation Testing](https://github.com/OWASP/www-project-artificial-intelligence-vulnerability-scoring-system/issues/33)

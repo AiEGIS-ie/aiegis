@@ -4,6 +4,21 @@ All notable changes to AiEGIS (spec + substrate-pack + compliance-bundle + SDK) 
 
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html). The spec wire format moves independently from the SDK and reference-impl release numbers — see the README "Spec conformance" stanza for the current mapping.
 
+## [0.7.1] — 2026-05-11
+
+Defensive hardening + canonical schema URL live.
+
+### Spec
+
+- `grid.schema.json` `$id` flipped back to canonical `https://aiegis.ie/ns/grid/v1/grid.schema.json` (route now live, returns HTTP 200 with the schema body). Downstream `jsonschema.RefResolver(base_uri=$id)` calls now resolve cleanly.
+
+### Substrate-pack
+
+- 219 tests, regression-locked (was 214 in v0.7.0; +5 tests for the new linkage check: 4 negative + 1 positive).
+- `binding_proof_reference.py` — strict private↔DID linkage check: `generate_binding_proof()` raises `SubstrateError(KEY_FORMAT_INVALID)` when a claimed `operator_did` does not derive from the supplied Ed25519 private key (per `DID_AIEGIS_METHOD_SPEC_V01.md` §3 multibase + multicodec `0xed01`).
+- New helpers `_operator_did_from_pubkey(pub_bytes)` + `_public_from_private(priv_bytes)` + `_base58btc_encode(bytes)` (pure-stdlib, no `base58` PyPI dep).
+- Test fixtures rewritten to use derived DIDs end-to-end (`test_substrate_verifiers.py`, `test_e2e_substrate_attested_bundle.py`, `demo_full_chain.py`). 99+12 specific tests pass, zero regressions on the full 219.
+
 ## [0.7.0] — 2026-05-11
 
 First public preview. Apache 2.0. Spec stable enough for design-partner integration; SDK and reference-impl ship together under one monorepo.
@@ -60,6 +75,5 @@ First public preview. Apache 2.0. Spec stable enough for design-partner integrat
 - Canonical JSON Schemas for `aiegis_binding_example.json`, `grid_catalog_example.json`, and `grid_signed_catalog_envelope.json` — v0.7 ships `grid.schema.json` for the manifest only; pre-push gate (x) validates the manifest example today and will fan out to the other three once their schemas are authored in v0.8
 - `aiegis-compliance-bundle` PyPI package — v0.7 ships the compliance bundle as a flat-file Python module imported directly from the cloned tree; pip-packaged distribution lands alongside SDK v1.0 (first paying customer milestone)
 - Formal `THREAT_MODEL.md` — v0.7 documents threat scope inside `SECURITY.md` (in-scope vs out-of-scope sections); a dedicated threat-model document with substrate-binding attack-tree analysis lands in v0.8 alongside the design-partner security review
-- Canonical `https://aiegis.ie/ns/grid/v1/grid.schema.json` URL — v0.7 ships `grid.schema.json` with `$id` pointing at `raw.githubusercontent.com/AiEGIS-ie/aiegis/main/spec/grid.schema.json` (honest today). A v0.7.1 patch will deploy the schema under the canonical `aiegis.ie/ns/grid/v1/` route alongside the existing `compliance/v1` + `substrate/v1` JSON-LD context routes, and flip `$id` back.
-
+[0.7.1]: https://github.com/AiEGIS-ie/aiegis/releases/tag/v0.7.1
 [0.7.0]: https://github.com/AiEGIS-ie/aiegis/releases/tag/v0.7.0
