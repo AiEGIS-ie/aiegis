@@ -60,5 +60,6 @@ First public preview. Apache 2.0. Spec stable enough for design-partner integrat
 - Canonical JSON Schemas for `aiegis_binding_example.json`, `grid_catalog_example.json`, and `grid_signed_catalog_envelope.json` — v0.7 ships `grid.schema.json` for the manifest only; pre-push gate (x) validates the manifest example today and will fan out to the other three once their schemas are authored in v0.8
 - `aiegis-compliance-bundle` PyPI package — v0.7 ships the compliance bundle as a flat-file Python module imported directly from the cloned tree; pip-packaged distribution lands alongside SDK v1.0 (first paying customer milestone)
 - Formal `THREAT_MODEL.md` — v0.7 documents threat scope inside `SECURITY.md` (in-scope vs out-of-scope sections); a dedicated threat-model document with substrate-binding attack-tree analysis lands in v0.8 alongside the design-partner security review
+- Canonical `https://aiegis.ie/ns/grid/v1/grid.schema.json` URL — v0.7 ships `grid.schema.json` with `$id` pointing at `raw.githubusercontent.com/AiEGIS-ie/aiegis/main/spec/grid.schema.json` (honest today). A v0.7.1 patch will deploy the schema under the canonical `aiegis.ie/ns/grid/v1/` route alongside the existing `compliance/v1` + `substrate/v1` JSON-LD context routes, and flip `$id` back.
 
 [0.7.0]: https://github.com/AiEGIS-ie/aiegis/releases/tag/v0.7.0
