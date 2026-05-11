@@ -9,6 +9,26 @@ updates:
     labels: ["dependencies", "ci"]
     commit-message:
       prefix: "deps"
+    groups:
+      # Transitive dev tooling — patch + minor bundled into one weekly PR.
+      dev-tools:
+        patterns:
+          - "pytest"
+          - "keyring"
+          - "jsonschema"
+          - "httpx"
+        update-types:
+          - "patch"
+          - "minor"
+      # cryptography stays in its own slot. Major bumps are NOT grouped so
+      # they always land standalone — gives the review path space to walk
+      # the changelog for signing-path impact.
+      security-critical:
+        patterns:
+          - "cryptography"
+        update-types:
+          - "patch"
+          - "minor"
 
   # Keep GitHub Actions versions current (setup-python, checkout, etc).
   - package-ecosystem: "github-actions"
@@ -19,3 +39,8 @@ updates:
     labels: ["dependencies", "ci"]
     commit-message:
       prefix: "ci"
+    groups:
+      # Both checkout + setup-python bumps collapse into a single weekly CI PR.
+      ci-actions:
+        patterns:
+          - "*"
