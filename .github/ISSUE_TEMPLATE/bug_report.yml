@@ -1,0 +1,65 @@
+name: Bug report
+description: Report a bug in the AiEGIS spec, reference verifiers, SDK, or compliance bundle.
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to file a bug. Security issues should NOT be filed here — see [SECURITY.md](https://github.com/AiEGIS-ie/aiegis/blob/main/SECURITY.md) for the disclosure process.
+
+  - type: input
+    id: aiegis-version
+    attributes:
+      label: AiEGIS version
+      placeholder: "v0.7.0 (or commit sha)"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Affected component
+      options:
+        - spec
+        - substrate-pack (reference verifiers)
+        - compliance-bundle
+        - aiegis-agent-sdk (Python)
+        - scripts / CI
+        - docs
+        - other
+    validations:
+      required: true
+
+  - type: input
+    id: env
+    attributes:
+      label: Environment
+      placeholder: "macOS 14.5 / Python 3.12.4 / cryptography 44.0.0"
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction steps
+      description: Minimal, complete, and reproducible. Paste commands run.
+      render: bash
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: Include error messages, tracebacks, and any relevant logs.
+      render: shell
+    validations:
+      required: true
