@@ -1,0 +1,28 @@
+{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://aiegis.ie/ns/grid/v1"
+  ],
+  "type": [
+    "VerifiableCredential",
+    "GridCatalogManifest"
+  ],
+  "issuer": "did:aiegis:operator:z6MkXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+  "validFrom": "2026-05-11T08:00:00Z",
+  "credentialSubject": {
+    "id": "did:aiegis:operator:z6MkXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "catalog_version": "0.1",
+    "catalog_url": "https://sample-bakery.example/grid/v1/products",
+    "catalog_sha256": "3a4f8c2e1b7d9e4f6a8c0b2d4e6f8a0c2e4f6a8c0b2d4e6f8a0c2e4f6a8c0b2d",
+    "product_count": 3,
+    "generated_at": "2026-05-11T08:00:00Z"
+  },
+  "proof": {
+    "type": "DataIntegrityProof",
+    "cryptosuite": "eddsa-rdfc-2022",
+    "created": "2026-05-11T08:00:00Z",
+    "verificationMethod": "did:aiegis:operator:z6MkXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX#key-1",
+    "proofPurpose": "assertionMethod",
+    "proofValue": "z3MwbeM5VtRcF8eXyW2qN4P6sH8jKfLpQwR9Tv1aB3cE5dG7hJ8kM9nP1qR3sT5uV7wX9yZ1aB2cD3eF4gH5iJ6kL7mN8oP9qRAsT1uV2wX3yZ4"
+  }
+}

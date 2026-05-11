@@ -1,0 +1,111 @@
+{
+  "catalog_version": "0.1",
+  "publisher_did": "did:aiegis:operator:z6MkXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+  "generated_at": "2026-05-11T08:00:00Z",
+  "products": [
+    {
+      "id": "5012345001",
+      "name": "Sourdough Loaf 800g",
+      "sku": "BAKERY-SOURDOUGH-800",
+      "category": "food/bakery/bread",
+      "brand": "Sample Bakery",
+      "price": {
+        "amount": 4.50,
+        "currency": "EUR",
+        "vat_included": true,
+        "unit": "each"
+      },
+      "availability": {
+        "in_stock": true,
+        "stock_level_hint": "high",
+        "regions_available": ["IE"]
+      },
+      "media": [
+        { "url": "https://sample-bakery.example/img/sourdough-800.jpg", "alt": "Sourdough Loaf 800g, hand-shaped" }
+      ],
+      "attributes": {
+        "weight_g": 800,
+        "ingredients": ["wheat flour", "water", "salt", "sourdough starter"],
+        "allergens": ["wheat", "gluten"],
+        "shelf_life_days": 3,
+        "diet": ["vegetarian", "vegan"]
+      },
+      "agent_metadata": {
+        "shoppable_by_agent": true,
+        "human_confirmation": "none",
+        "min_order_quantity": 1,
+        "max_order_quantity": 20
+      }
+    },
+    {
+      "id": "5012345002",
+      "name": "Artisan Croissant",
+      "sku": "BAKERY-CROISSANT-1",
+      "category": "food/bakery/pastry",
+      "brand": "Sample Bakery",
+      "price": {
+        "amount": 2.20,
+        "currency": "EUR",
+        "vat_included": true,
+        "unit": "each"
+      },
+      "availability": {
+        "in_stock": true,
+        "stock_level_hint": "medium",
+        "regions_available": ["IE"]
+      },
+      "media": [
+        { "url": "https://sample-bakery.example/img/croissant.jpg", "alt": "Artisan Croissant, butter-laminated" }
+      ],
+      "attributes": {
+        "weight_g": 80,
+        "allergens": ["wheat", "milk", "egg"],
+        "shelf_life_days": 1
+      },
+      "agent_metadata": {
+        "shoppable_by_agent": true,
+        "human_confirmation": "none",
+        "min_order_quantity": 1,
+        "max_order_quantity": 50
+      }
+    },
+    {
+      "id": "5012345003",
+      "name": "Wedding Cake — 3-tier custom",
+      "sku": "BAKERY-WEDDING-CAKE-3T",
+      "category": "food/bakery/custom-celebration",
+      "brand": "Sample Bakery",
+      "price": {
+        "amount": 450.00,
+        "currency": "EUR",
+        "vat_included": true,
+        "unit": "each"
+      },
+      "availability": {
+        "in_stock": false,
+        "stock_level_hint": "made-to-order",
+        "lead_time_days": 14,
+        "regions_available": ["IE"]
+      },
+      "media": [
+        { "url": "https://sample-bakery.example/img/wedding-3t.jpg", "alt": "3-tier wedding cake reference photo" }
+      ],
+      "attributes": {
+        "serves_persons": 80,
+        "customization_required": true,
+        "allergens": ["wheat", "milk", "egg"]
+      },
+      "agent_metadata": {
+        "shoppable_by_agent": true,
+        "human_confirmation": "pre_order",
+        "min_order_quantity": 1,
+        "max_order_quantity": 1,
+        "human_confirmation_reason": "high-value custom order (>€100, customization required)"
+      }
+    }
+  ],
+  "pagination": {
+    "next": null,
+    "total": 3
+  }
+}

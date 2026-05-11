@@ -1,0 +1,52 @@
+# Build artifacts
+.build/
+build/
+dist/
+*.egg-info/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+node_modules/
+*.log
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets / env
+.env
+.env.local
+*.pem
+*.key
+secrets/
+
+# Local
+.local/
+backups/
+*.bak
+*.bak.*
+
+# Test outputs
+chaos_harness_*.json
+claim_audit_*.json
+sweep_results/local/
+
+# Mac agent build
+mac-agent/.build/
+mac-agent/Package.resolved.lock
+
+# Rust build artifacts (per Nel audit 2026-05-10 23:46 — feedback_rsync_exclude_build_artifacts)
+target/
+*.rmeta
+*.rlib
+*.rcgu.o
+**/target/*.bin
+**/incremental/*.bin

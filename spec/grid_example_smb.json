@@ -1,0 +1,50 @@
+{
+  "grid_version": "0.1",
+  "publisher": {
+    "name": "Sample Bakery Cork",
+    "legal_entity": "Sample Bakery Ltd, CRO 678901",
+    "did": "did:aiegis:operator:z6MkXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "homepage": "https://sample-bakery.example",
+    "logo_url": "https://sample-bakery.example/logo.svg",
+    "jurisdiction": "IE",
+    "binding_proof": "https://sample-bakery.example/.well-known/aiegis-binding.json"
+  },
+  "catalog": {
+    "type": "url",
+    "url": "https://sample-bakery.example/grid/v1/products",
+    "format": "application/grid-catalog+json",
+    "auth": "none",
+    "rate_limit_per_min": 60,
+    "last_updated": "2026-05-11T07:00:00Z",
+    "signature": {
+      "url": "https://sample-bakery.example/.well-known/catalog-manifest.sig",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "type": "DataIntegrityProof"
+    }
+  },
+  "payment": {
+    "endpoint": "https://checkout.sample-bakery.example/v1/agent-order",
+    "methods": ["card", "open_banking"],
+    "currencies": ["EUR"],
+    "supports_pre_auth": true,
+    "supports_partial_refund": false
+  },
+  "fulfillment": {
+    "endpoint": "https://sample-bakery.example/orders/v1",
+    "delivery_regions": ["IE"],
+    "estimated_lead_time_hours": 24,
+    "pickup_supported": true
+  },
+  "policy": {
+    "return_policy_url": "https://sample-bakery.example/returns",
+    "agent_terms_url": "https://sample-bakery.example/agent-terms",
+    "data_protection": "GDPR-2016-679",
+    "ai_act_disclosure_url": "https://sample-bakery.example/ai-disclosure"
+  },
+  "verification": {
+    "aiegis_verified": false,
+    "aiegis_tier": "free-listing",
+    "verified_since": null,
+    "verification_url": null
+  }
+}

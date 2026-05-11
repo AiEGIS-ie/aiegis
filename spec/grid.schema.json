@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aiegis.ie/ns/grid/v1/grid.schema.json",
+  "title": "Grid wholesale-catalog manifest",
+  "description": "Canonical JSON Schema for /.well-known/grid.json (v0.1). See GRID_SCHEMA_OVERVIEW.md for prose discussion of design intent.",
+  "type": "object",
+  "required": ["grid_version", "publisher", "catalog", "payment"],
+  "additionalProperties": false,
+  "properties": {
+    "grid_version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+$" },
+    "publisher": {
+      "type": "object",
+      "required": ["name", "did", "homepage", "jurisdiction"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "legal_entity": { "type": "string" },
+        "did": { "type": "string", "pattern": "^did:aiegis:operator:z6Mk[1-9A-HJ-NP-Za-km-z]{44}$" },
+        "homepage": { "type": "string", "format": "uri" },
+        "logo_url": { "type": "string", "format": "uri" },
+        "jurisdiction": { "type": "string", "pattern": "^[A-Z]{2}$" },
+        "binding_proof": { "type": "string", "format": "uri" }
+      }
+    },
+    "catalog": {
+      "type": "object",
+      "required": ["type", "url", "format"],
+      "additionalProperties": false,
+      "properties": {
+        "type": { "enum": ["url"] },
+        "url": { "type": "string", "format": "uri" },
+        "format": { "type": "string", "pattern": "^application/grid-catalog\\+json$" },
+        "auth": { "enum": ["none", "bearer", "mtls"] },
+        "rate_limit_per_min": { "type": "integer", "minimum": 1 },
+        "last_updated": { "type": "string", "format": "date-time" },
+        "signature": {
+          "type": "object",
+          "required": ["url", "cryptosuite", "type"],
+          "additionalProperties": false,
+          "properties": {
+            "url": { "type": "string", "format": "uri" },
+            "cryptosuite": { "enum": ["eddsa-rdfc-2022", "hybrid-ed25519-mldsa65"] },
+            "type": { "const": "DataIntegrityProof" }
+          }
+        }
+      }
+    },
+    "payment": {
+      "type": "object",
+      "required": ["endpoint", "methods", "currencies"],
+      "additionalProperties": false,
+      "properties": {
+        "endpoint": { "type": "string", "format": "uri" },
+        "methods": { "type": "array", "minItems": 1, "items": { "enum": ["card", "open_banking", "agent_wallet"] } },
+        "currencies": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": "^[A-Z]{3}$" } },
+        "supports_pre_auth": { "type": "boolean" },
+        "supports_partial_refund": { "type": "boolean" }
+      }
+    },
+    "fulfillment": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "endpoint": { "type": "string", "format": "uri" },
+        "delivery_regions": { "type": "array", "items": { "type": "string", "pattern": "^[A-Z]{2}$" } },
+        "estimated_lead_time_hours": { "type": "integer", "minimum": 0 },
+        "pickup_supported": { "type": "boolean" }
+      }
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "return_policy_url": { "type": "string", "format": "uri" },
+        "agent_terms_url": { "type": "string", "format": "uri" },
+        "data_protection": { "type": "string" },
+        "ai_act_disclosure_url": { "type": "string", "format": "uri" }
+      }
+    },
+    "verification": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "aiegis_verified": { "type": "boolean" },
+        "aiegis_tier": { "enum": ["free-listing", "verified-merchant"] },
+        "verified_since": { "type": ["string", "null"], "format": "date-time" },
+        "verification_url": { "type": ["string", "null"], "format": "uri" },
+        "aiegis_verification_signature": {
+          "type": "object",
+          "required": ["cryptosuite", "type", "verificationMethod", "proofValue"],
+          "properties": {
+            "cryptosuite": { "enum": ["eddsa-rdfc-2022", "hybrid-ed25519-mldsa65"] },
+            "type": { "const": "DataIntegrityProof" },
+            "verificationMethod": { "type": "string", "pattern": "^did:aiegis:operator:z6Mk[1-9A-HJ-NP-Za-km-z]{44}#[A-Za-z0-9_-]+$" },
+            "proofValue": { "type": "string", "minLength": 80 }
+          }
+        }
+      }
+    }
+  }
+}

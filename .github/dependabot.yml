@@ -1,0 +1,21 @@
+version: 2
+updates:
+  # Keep pinned CI deps current — opens PRs that re-fire the gate matrix.
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    labels: ["dependencies", "ci"]
+    commit-message:
+      prefix: "deps"
+
+  # Keep GitHub Actions versions current (setup-python, checkout, etc).
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    labels: ["dependencies", "ci"]
+    commit-message:
+      prefix: "ci"
