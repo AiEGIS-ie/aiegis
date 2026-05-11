@@ -1,0 +1,49 @@
+name: Feature request / spec proposal
+description: Suggest a change to the AiEGIS spec, reference implementation, or SDK.
+title: "[proposal] "
+labels: ["proposal"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Spec changes start as proposals. Please skim [CONTRIBUTING.md](https://github.com/AiEGIS-ie/aiegis/blob/main/CONTRIBUTING.md) first for the review path.
+
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Motivating use case
+      description: What problem does this solve? Who hits it?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Concrete shape. Spec text, function signature, or API contract.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: What other approaches did you think about, and why this one?
+    validations:
+      required: false
+
+  - type: textarea
+    id: composes-with
+    attributes:
+      label: Composes with
+      description: Which existing AiEGIS surfaces does this touch? (substrate-binding spec, did:aiegis method, compliance-bundle, SDK, etc.)
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: backwards-compat
+    attributes:
+      label: Backwards compatibility
+      options:
+        - label: This change is backwards-compatible with v0.7
+        - label: This change requires a v0.8 bump (wire format / public API)
