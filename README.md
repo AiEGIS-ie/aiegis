@@ -1,4 +1,4 @@
-# AiEGIS — Substrate-Anchored AI Agent Identity
+# AIEGIS — Substrate-Anchored AI Agent Identity
 
 **Open standard for cryptographically anchoring AI agent identity to the silicon they run on.**
 
@@ -15,7 +15,7 @@ AI agents act on behalf of operators. Customers, regulators, and counterparties 
 
 Today the agent's signing key is mobile — a software keypair on disk, a cloud bearer token, or a vendor-managed credential. Steal the file, you impersonate the agent indefinitely. There is no cryptographic answer to *which machine was this?*
 
-## What AiEGIS is
+## What AIEGIS is
 
 A **substrate-anchored agent identity standard**: the agent's signing key is generated inside, and remains inside, a hardware root-of-trust on the host. Every signed action is a chip-side operation.
 
@@ -29,7 +29,7 @@ This repository contains:
 
 ## Why open
 
-AiEGIS is the spec + reference implementation. It is free under Apache 2.0. Adopt it, run your own operator, fork it, fight it.
+AIEGIS is the spec + reference implementation. It is free under Apache 2.0. Adopt it, run your own operator, fork it, fight it.
 
 The paid service we run on top — registry, trust root, managed substrate verification, EU sovereign hosting — stays paid. Open spec, paid operator. Same model as OAuth/Auth0, OpenID/Okta, TLS/Let's Encrypt.
 
@@ -48,7 +48,7 @@ The paid service we run on top — registry, trust root, managed substrate verif
 
 ```bash
 # Install from source (PyPI release pending v1.0)
-git clone https://github.com/AiEGIS-ie/aiegis
+git clone https://github.com/AIEGIS-ie/aiegis
 cd aiegis/sdk
 pip install --upgrade pip  # PEP-660 editable installs require pip >=21.3
 pip install -e .
@@ -63,7 +63,7 @@ print(agent.did)
 For verifier integration:
 
 ```bash
-git clone https://github.com/AiEGIS-ie/aiegis
+git clone https://github.com/AIEGIS-ie/aiegis
 cd aiegis
 pip install --upgrade pip       # PEP-660 editable installs require pip >=21.3
 pip install -e ./sdk            # test suites import aiegis_agent
