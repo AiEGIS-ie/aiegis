@@ -1,7 +1,7 @@
 # Pinned CI dependencies — bump via dependabot only.
 # Drift = supply-chain risk; do not edit by hand.
 jsonschema==4.26.0
-pytest==9.0.3
+pytest==9.1.1
 cryptography==48.0.0
 httpx==0.28.1
 keyring==25.7.0
